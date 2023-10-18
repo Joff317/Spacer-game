@@ -61,10 +61,10 @@ class Player {
       const maxY = gameRect.height - this.height - this.margin; //Pareil que le 2 mais avec la verticalité
 
       const clampedX = Math.min(maxX, Math.max(minX, mouseX - this.width / 2)); //horizontale de la souris (mouseX) - la moitié de la largeur du joueur. Cela nous donne une position horizontale qui place le joueur de manière à ce que son centre soit aligné avec la position horizontale de la souris.
-      const clampedY = Math.min(maxY, Math.max(minY, mouseY - this.height / 2)); 
+      const clampedY = Math.min(maxY, Math.max(minY, mouseY - this.height / 2));
 
       //On passe les résultats à l'image
-      this.element.style.left = `${clampedX}px`; 
+      this.element.style.left = `${clampedX}px`;
       this.element.style.top = `${clampedY}px`;
     }
   }
@@ -80,6 +80,24 @@ class Player {
       this.element.style.left = `${
         this.gameScreen.offsetWidth - this.width - this.margin
       }px`;
+    }
+  }
+
+  didCollide(asteroid) {
+    const playerRect = this.element.getBoundingClientRect();
+    const asteroidRect = asteroid.element.getBoundingClientRect();
+
+    if (
+      playerRect.left < asteroidRect.right &&
+      playerRect.right > asteroidRect.left &&
+      playerRect.top < asteroidRect.bottom &&
+      playerRect.bottom > asteroidRect.top
+    ) {
+      console.log("Crash!");
+
+      return true;
+    } else {
+      return false;
     }
   }
 }
