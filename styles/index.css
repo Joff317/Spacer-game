@@ -2,9 +2,54 @@ body {
    box-sizing: border-box;
    margin: 0;
    padding: 0;
-   /* background: url('https://cdn.pixabay.com/photo/2011/12/14/12/21/orion-nebula-11107_1280.jpg') no-repeat; */
+   height: 100vh;
+   overflow: hidden;
+   background-image: url('../images/star-2642382_1920.jpg');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+
+}
+
+main {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   /* 100% de la hauteur de la fenêtre du navigateur */
+   margin: 0;
+}
+
+.start-screen {
+   /* margin: auto; */
+   display: flex;
+   flex-direction: column;
+   /* justify-content: space-between; */
+   text-align: center;
+   width: 50%;
+   height: 80%;
+   border: 3px solid green;
+   padding: 10px;
+}
+
+.start-title {
+   font-size: 64px;
+   /* Ajustez la taille de la police selon vos besoins */
+   font-weight: bold;
+   /* Ajustez le poids de la police si nécessaire */
+   text-transform: uppercase;
+   /* Optionnel : mettre en majuscules */
+   color: white;
+   /* Couleur du texte */
+   -webkit-text-stroke: 3px #335AA5;
+   /* 2px est l'épaisseur de la bordure, black est la couleur */
+   -webkit-background-clip: text;
 }
 
 /* main {
    background: url('https://cdn.pixabay.com/photo/2011/12/14/12/21/orion-nebula-11107_1280.jpg');
 } */
+
+.game-end {
+   display: none;
+}
