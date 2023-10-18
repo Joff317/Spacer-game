@@ -46,6 +46,18 @@ main {
    -webkit-background-clip: text;
 }
 
+.game-screen {
+   display: none;
+   align-content: center;
+   padding: 20px 0px;
+   overflow: hidden;
+   position: relative;
+   border-radius: 70px;
+   border: 8px solid rgba(60, 99, 234, 0.30);
+   background: rgba(217, 217, 217, 0.05);
+   box-shadow: 20px 10px 4px 0px rgba(58, 70, 137, 0.25);
+}
+
 /* main {
    background: url('https://cdn.pixabay.com/photo/2011/12/14/12/21/orion-nebula-11107_1280.jpg');
 } */
