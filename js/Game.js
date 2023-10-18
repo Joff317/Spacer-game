@@ -40,8 +40,8 @@ class Game {
     window.requestAnimationFrame(() => this.replay());
   }
 
-  update() {
-    this.player.move();
+  update(event) {
+    this.player.move(event);
   }
 
   endGame() {}
