@@ -15,8 +15,12 @@ class Asteroid {
     this.element.style.height = `${this.height}px`;
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
-
     this.gameScreen.appendChild(this.element);
+
+    this.explosionElement = document.createElement("div");
+    this.explosionElement.classList.add("explosion");
+    this.explosionElement.style.display = "none";
+    this.gameScreen.appendChild(this.explosionElement);
   }
 
   move() {
@@ -32,8 +36,6 @@ class Asteroid {
       return true;
     }
   }
-
-  // Test 1
 
   updatePosition() {
     // Update the obstacle's position based on the properties left and top
@@ -51,5 +53,19 @@ class Asteroid {
       asteroidRect.top < projectileRect.bottom &&
       asteroidRect.bottom > projectileRect.top
     );
+  }
+
+  explode() {
+    const explosion = document.createElement("div");
+    explosion.classList.add("explosion");
+    explosion.style.left = this.left + "px";
+    explosion.style.top = this.top + "px";
+
+    this.gameScreen.appendChild(explosion);
+
+    // Supprime l'explosion après un certain délai
+    setTimeout(() => {
+      explosion.remove();
+    }, 500); // Supprime l'explosion après 500 millisecondes (0.5 seconde)
   }
 }

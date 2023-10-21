@@ -8,11 +8,15 @@
 </head>
 <body>
    <main>
+      <div class="info-container">
+         <p class="score">Score : 0</p>
+         <p class="lives">Lives : 3</p>
+      </div>
       <div class="start-screen">
          <h1 class="start-title">Crazy SpaceShip</h1>
          <div class="rules">
-            <h2>Click to check Rules</h2>
-            <ul>
+            <h2 id="rules-title">Click to check Rules</h2>
+            <ul class="rules-list">
                <li>1. Launch the game</li>
                <li>2. You will have to avoid asteroid or destroy them</li>
             </ul>
@@ -26,7 +30,7 @@
       <div class="game-end">
          <h2>You loose</h2>
          <h3>Score</h3>
-         <button class="btn-restart-game">RESTART</button>
+         <button id="btn-restart-game">RESTART</button>
       </div>
    </main>
 
@@ -35,6 +39,8 @@
    <script src="./js/game.js"></script>
    <script src="./js/player.js"></script>
    <script src="./js/script.js"></script>
+   <script src="./js/animation.js"></script>
+
   
 </body>
 </html>

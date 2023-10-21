@@ -15,7 +15,7 @@ class Game {
     this.width = 500;
     this.asteroid = [];
     this.score = 0;
-    this.lives = 100;
+    this.lives = 3;
     this.gameIsOver = false;
   }
 
@@ -48,11 +48,12 @@ class Game {
 
       if (collidedProjectile) {
         // Si collision, on supprime l'asteroid et le proj
+        asteroid.explode();
         asteroid.element.remove();
         collidedProjectile.image.remove();
 
         // Incrémente le score
-        this.score++;
+        document.querySelector(".score").innerHTML = `Score: ${this.score++}`;
       }
 
       return !collidedProjectile; // Retourne true si l'asté n'a pas été touché
@@ -66,19 +67,21 @@ class Game {
 
     this.asteroid = this.asteroid.filter((asteroid) => {
       if (this.player.didCollide(asteroid)) {
+        asteroid.explode();
+        this.lives--;
+        document.querySelector(".lives").innerHTML = `Lives: ${this.lives}`;
         // Si collision on supprime l'astero
         asteroid.element.remove();
-        this.lives--;
         return false; // Retourne false pour retirer l'astéroïde de la liste
       }
       return asteroid.move();
     });
 
-    if (this.lives === 0) {
+    if (this.lives == 0) {
       this.endGame();
     }
 
-    if (Math.random() > 0.98 && this.asteroid.length < 4) {
+    if (Math.random() > 0.98 && this.asteroid.length < 9) {
       this.asteroid.push(new Asteroid(this.gameScreen));
     }
   }

@@ -93,7 +93,7 @@ class Player {
       if (this.isFollowingMouse) {
         this.fire();
       }
-    }, 1000);
+    }, 300);
   }
 
   fire() {
