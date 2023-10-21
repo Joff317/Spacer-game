@@ -15,7 +15,7 @@ class Game {
     this.width = 500;
     this.asteroid = [];
     this.score = 0;
-    this.lives = 1;
+    this.lives = 100;
     this.gameIsOver = false;
   }
 
@@ -57,11 +57,9 @@ class Game {
       this.endGame();
     }
 
-    
     if (Math.random() > 0.98 && this.asteroid.length < 4) {
       this.asteroid.push(new Asteroid(this.gameScreen));
     }
-
   }
 
   endGame() {
@@ -69,6 +67,5 @@ class Game {
     this.endScreen.style.display = "block";
 
     this.gameIsOver = true;
-    
   }
 }

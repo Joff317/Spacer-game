@@ -15,12 +15,15 @@ class Player {
     this.element.style.top = `${top}px`;
     this.gameScreen.appendChild(this.element);
 
+    this.projectiles = [];
+
     this.isFollowingMouse = false; // On initialise une variable pour suivre la souris
     this.margin = 20; // Définit ou l'image du joueur va rester
 
     this.setupMouseEnter();
     this.setupMouseMove();
     this.setupMouseLeave();
+    this.shootingTime();
   }
 
   setupMouseEnter() {
@@ -51,9 +54,9 @@ class Player {
     if (event) {
       const gameRect = this.gameScreen.getBoundingClientRect(); // coordonnées de l'écran de jeux
       const mouseX = event.clientX - gameRect.left; //  position horizontale de la souris - la gauche de l'écran selectionné car si non on prend tout l'écran
-      console.log(mouseX);
+      // console.log(mouseX);
       const mouseY = event.clientY - gameRect.top; //  position verticale de la souris - le top de l'écran selectionné
-      console.log(mouseY);
+      // console.log(mouseY);
 
       const minX = this.margin; //limite minimale de la position horizontale du joueur
       const maxX = gameRect.width - this.width - this.margin; //limite maximale de la position horizontale du joueur largeur totale de l'écran de jeux (gameRect.width) - largeur du joueur (this.width) - marge par rapport au bord droit de la zone de jeu.
@@ -64,6 +67,8 @@ class Player {
       const clampedY = Math.min(maxY, Math.max(minY, mouseY - this.height / 2));
 
       //On passe les résultats à l'image
+      this.left = clampedX;
+      this.top = clampedY;
       this.element.style.left = `${clampedX}px`;
       this.element.style.top = `${clampedY}px`;
     }
@@ -83,6 +88,34 @@ class Player {
     }
   }
 
+  shootingTime() {
+    setInterval(() => {
+      if (this.isFollowingMouse) {
+        this.fire();
+      }
+    }, 100);
+  }
+
+  fire() {
+    // const x = this.left + this.width / 2;
+    // console.log(x);
+    // const y = this.top + this.height / 2;
+    // console.log(y);
+
+    console.log(this.projectiles);
+    if (this.projectiles.length < 10) {
+      // console.log("tessst");
+      this.projectiles.push(
+        new Projectile(this.gameScreen, this.left, this.top)
+      );
+      this.projectiles.filter((projectile) => {
+        return projectile.move();
+      });
+    } else {
+      this.projectiles.shift();
+    }
+  }
+
   didCollide(asteroid) {
     const playerRect = this.element.getBoundingClientRect();
     const asteroidRect = asteroid.element.getBoundingClientRect();
@@ -95,7 +128,7 @@ class Player {
       playerRect.top < asteroidRect.bottom &&
       playerRect.bottom > asteroidRect.top
     ) {
-      console.log("Crash!");
+      // console.log("Crash!");
 
       return true;
     } else {
