@@ -20,18 +20,15 @@ class Asteroid {
   }
 
   move() {
-    // Move the obstacle down by 3px
     this.top += this.speed;
 
     if (this.top > this.gameScreen.clientHeight) {
-      // If it has, remove the asteroid from the screen and from the array
       this.element.remove();
-      // Return false to indicate that the asteroid should be removed from the array
+
       return false;
     } else {
-      // Update the asteroid's position on the screen
       this.updatePosition();
-      // Return true to indicate that the asteroid should be kept in the array
+
       return true;
     }
   }

@@ -49,10 +49,10 @@ class Player {
 
   move(event) {
     if (event) {
-      const gameRect = this.gameScreen.getBoundingClientRect(); //Obtenir les coordonnées de l'écran de jeux
-      const mouseX = event.clientX - gameRect.left; // Calculer la position horizontale de la souris - la gauche de l'écran selectionné car si non on prend tout l'écran
+      const gameRect = this.gameScreen.getBoundingClientRect(); // coordonnées de l'écran de jeux
+      const mouseX = event.clientX - gameRect.left; //  position horizontale de la souris - la gauche de l'écran selectionné car si non on prend tout l'écran
       console.log(mouseX);
-      const mouseY = event.clientY - gameRect.top; // Calculer la position verticale de la souris - le top de l'écran selectionné
+      const mouseY = event.clientY - gameRect.top; //  position verticale de la souris - le top de l'écran selectionné
       console.log(mouseY);
 
       const minX = this.margin; //limite minimale de la position horizontale du joueur
@@ -60,7 +60,7 @@ class Player {
       const minY = this.margin; //limite minimale de la position verticale du joueur
       const maxY = gameRect.height - this.height - this.margin; //Pareil que le 2 mais avec la verticalité
 
-      const clampedX = Math.min(maxX, Math.max(minX, mouseX - this.width / 2)); //horizontale de la souris (mouseX) - la moitié de la largeur du joueur. Cela nous donne une position horizontale qui place le joueur de manière à ce que son centre soit aligné avec la position horizontale de la souris.
+      const clampedX = Math.min(maxX, Math.max(minX, mouseX - this.width / 2)); //horizontale de la souris (mouseX) - la moitié de la largeur du joueur, nous donne une position horizontale qui place le joueur de manière à ce que son centre soit aligné avec la position horizontale de la souris.
       const clampedY = Math.min(maxY, Math.max(minY, mouseY - this.height / 2));
 
       //On passe les résultats à l'image
@@ -86,6 +86,8 @@ class Player {
   didCollide(asteroid) {
     const playerRect = this.element.getBoundingClientRect();
     const asteroidRect = asteroid.element.getBoundingClientRect();
+
+    // VOIR CE QUI MERDE ICI !!!!
 
     if (
       playerRect.left < asteroidRect.right &&
