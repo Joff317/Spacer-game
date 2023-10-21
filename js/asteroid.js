@@ -33,6 +33,8 @@ class Asteroid {
     }
   }
 
+  // Test 1
+
   updatePosition() {
     // Update the obstacle's position based on the properties left and top
     this.element.style.left = `${this.left}px`;
