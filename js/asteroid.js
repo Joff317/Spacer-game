@@ -38,4 +38,16 @@ class Asteroid {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
   }
+
+  didCollide(projectile) {
+    const asteroidRect = this.element.getBoundingClientRect();
+    const projectileRect = projectile.image.getBoundingClientRect();
+
+    return (
+      asteroidRect.left < projectileRect.right &&
+      asteroidRect.right > projectileRect.left &&
+      asteroidRect.top < projectileRect.bottom &&
+      asteroidRect.bottom > projectileRect.top
+    );
+  }
 }

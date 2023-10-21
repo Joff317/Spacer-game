@@ -93,7 +93,7 @@ class Player {
       if (this.isFollowingMouse) {
         this.fire();
       }
-    }, 100);
+    }, 1000);
   }
 
   fire() {
@@ -106,7 +106,7 @@ class Player {
     if (this.projectiles.length < 10) {
       // console.log("tessst");
       this.projectiles.push(
-        new Projectile(this.gameScreen, this.left, this.top)
+        new Projectile(this.game, this.gameScreen, this.left, this.top)
       );
       this.projectiles.filter((projectile) => {
         return projectile.move();

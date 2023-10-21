@@ -40,8 +40,29 @@ class Game {
     window.requestAnimationFrame(() => this.replay());
   }
 
+  checkCollisions() {
+    this.asteroid = this.asteroid.filter((asteroid) => {
+      const collidedProjectile = this.player.projectiles.find((projectile) =>
+        asteroid.didCollide(projectile)
+      );
+
+      if (collidedProjectile) {
+        // Si collision, on supprime l'asteroid et le proj
+        asteroid.element.remove();
+        collidedProjectile.image.remove();
+
+        // Incrémente le score
+        this.score++;
+      }
+
+      return !collidedProjectile; // Retourne true si l'asté n'a pas été touché
+    });
+  }
+
   update() {
     this.player.move(event);
+
+    this.checkCollisions();
 
     this.asteroid = this.asteroid.filter((asteroid) => {
       if (this.player.didCollide(asteroid)) {
