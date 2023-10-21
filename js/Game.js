@@ -45,7 +45,7 @@ class Game {
 
     this.asteroid = this.asteroid.filter((asteroid) => {
       if (this.player.didCollide(asteroid)) {
-        // Si une collision est détectée, supprimez l'astéroïde
+        // Si collision on supprime l'astero
         asteroid.element.remove();
         this.lives--;
         return false; // Retourne false pour retirer l'astéroïde de la liste
@@ -57,12 +57,11 @@ class Game {
       this.endGame();
     }
 
-    // Ajouter de nouveaux astéroïdes si nécessaire
+    
     if (Math.random() > 0.98 && this.asteroid.length < 4) {
       this.asteroid.push(new Asteroid(this.gameScreen));
     }
 
-    // this.player.didCollide(this.asteroid);
   }
 
   endGame() {
@@ -70,9 +69,6 @@ class Game {
     this.endScreen.style.display = "block";
 
     this.gameIsOver = true;
-    // Hide game screen
-    // this.gameScreen.style.display = "none";
-    // // Show end game screen
-    // this.endScreen.style.display = "block";
+    
   }
 }
