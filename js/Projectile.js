@@ -1,5 +1,5 @@
 class Projectile {
-  constructor(gameScreen, PlayerX, PlayerY) {
+  constructor(game, gameScreen, PlayerX, PlayerY) {
     this.gameScreen = gameScreen;
     this.x = PlayerX;
     this.y = PlayerY;
@@ -13,15 +13,12 @@ class Projectile {
     this.image.style.width = 30 + "px";
     this.gameScreen.appendChild(this.image);
 
-     this.move = this.move.bind(this);
-     setInterval(this.move, 1000 / 60);
+    this.move = this.move.bind(this);
+    setInterval(this.move, 1000 / 60);
   }
 
   move() {
     this.y -= 3;
-   //  console.log("this.y classe projectile", this.y);
-
-    //  this.image.style.top = this.y + "px";
 
     if (this.top > this.gameScreen.clientHeight) {
       this.image.remove();
@@ -29,6 +26,24 @@ class Projectile {
     } else {
       this.updatePosition();
       return true;
+    }
+  }
+
+  didCollide(asteroid) {
+    const projectileRect = this.image.getBoundingClientRect();
+    const asteroidRect = asteroid.element.getBoundingClientRect();
+
+    if (
+      projectileRect.left < asteroidRect.right &&
+      projectileRect.right > asteroidRect.left &&
+      projectileRect.top < asteroidRect.bottom &&
+      projectileRect.bottom > asteroidRect.top
+    ) {
+      console.log("HIT!");
+
+      return true;
+    } else {
+      return false;
     }
   }
 
