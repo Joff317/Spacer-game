@@ -1,16 +1,39 @@
 class Projectile {
-   constructor(x, y, speed){
-      this.x = x 
-      this.y = y 
-      this.speed = speed
-      this.image = document.createElement('img')
-      this.image.src = 
-      // TAILLE
-      // IMAGE
-      // POSITION 
-      // ELEMENT QUI FAIT QUE ÇA VA SUR LE TOP A CHAQUE FOIS QU'IL Y A 
-   }
+  constructor(gameScreen, PlayerX, PlayerY) {
+    this.gameScreen = gameScreen;
+    this.x = PlayerX;
+    this.y = PlayerY;
+    //  this.speed = -3;
+    this.image = document.createElement("img");
+    this.image.src = "../images/missile.png";
+    this.image.style.position = "absolute";
+    this.image.style.left = this.x + "px";
+    this.image.style.top = this.y + "px";
+    this.image.style.height = 70 + "px";
+    this.image.style.width = 30 + "px";
+    this.gameScreen.appendChild(this.image);
 
-   // RECUPEREZ LA POSITION DU PLAYER
-   
+     this.move = this.move.bind(this);
+     setInterval(this.move, 1000 / 60);
+  }
+
+  move() {
+    this.y -= 3;
+   //  console.log("this.y classe projectile", this.y);
+
+    //  this.image.style.top = this.y + "px";
+
+    if (this.top > this.gameScreen.clientHeight) {
+      this.image.remove();
+      return false;
+    } else {
+      this.updatePosition();
+      return true;
+    }
+  }
+
+  updatePosition() {
+    this.image.style.left = `${this.x}px`;
+    this.image.style.top = `${this.y}px`;
+  }
 }
