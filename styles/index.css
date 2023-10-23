@@ -55,15 +55,10 @@ main {
 .lives,
 #end-score {
    font-size: 32px;
-   /* Ajustez la taille de la police selon vos besoins */
    font-weight: bold;
-   /* Ajustez le poids de la police si nécessaire */
    text-transform: uppercase;
-   /* Optionnel : mettre en majuscules */
    color: white;
-   /* Couleur du texte */
    -webkit-text-stroke: 2px #335AA5;
-   /* 2px est l'épaisseur de la bordure, black est la couleur */
    -webkit-background-clip: text;
 }
 
@@ -116,7 +111,6 @@ main {
    background-color: black;
    transition: left 0.5s;
    font-weight: bold;
-   /* Optionnel : mettre en majuscules */
    border: 8px solid rgba(60, 99, 234, 0.30);
    background: rgba(107, 127, 200, 0.2);
    box-shadow: 20px 10px 4px 0px rgba(58, 70, 137, 0.25);
@@ -147,23 +141,13 @@ main {
    display: none;
 } */
 
-.rules-list.show {
-   left: 50%;
-   /* Lorsqu'il est affiché, déplacez-le vers le centre */
-}
-
 .start-title,
 #end-title {
    font-size: 64px;
-   /* Ajustez la taille de la police selon vos besoins */
    font-weight: bold;
-   /* Ajustez le poids de la police si nécessaire */
    text-transform: uppercase;
-   /* Optionnel : mettre en majuscules */
    color: white;
-   /* Couleur du texte */
    -webkit-text-stroke: 3px #335AA5;
-   /* 2px est l'épaisseur de la bordure, black est la couleur */
    -webkit-background-clip: text;
 }
 
@@ -179,15 +163,9 @@ main {
    box-shadow: 20px 10px 4px 0px rgba(58, 70, 137, 0.25);
 }
 
-/* main {
-   background: url('https://cdn.pixabay.com/photo/2011/12/14/12/21/orion-nebula-11107_1280.jpg');
-} */
-
 .game-end {
    display: none;
 }
-
-
 
 .explosion {
    position: absolute;

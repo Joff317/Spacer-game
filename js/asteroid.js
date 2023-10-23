@@ -63,9 +63,8 @@ class Asteroid {
 
     this.gameScreen.appendChild(explosion);
 
-    // Supprime l'explosion après un certain délai
     setTimeout(() => {
       explosion.remove();
-    }, 500); // Supprime l'explosion après 500 millisecondes (0.5 seconde)
+    }, 500);
   }
 }
