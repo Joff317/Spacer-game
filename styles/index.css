@@ -26,11 +26,13 @@ main {
    right: 10px;
 }
 
-#start-button {
+#start-button,
+#btn-restart-game {
    position: absolute;
    bottom: 150px;
    padding: 10px;
    text-align: center;
+   color: #fff;
    height: 50px;
    width: 300px;
    cursor: pointer;
@@ -40,12 +42,18 @@ main {
    box-shadow: -20px 10px 9px 0px rgba(36, 86, 212, 0.524);
 }
 
-#start-button:hover{
+#btn-restart-game{
+   bottom: 20%;
+}
+
+#start-button:hover,
+#btn-restart-game:hover {
    border-color: white;
 }
 
 .score,
-.lives {
+.lives,
+#end-score {
    font-size: 32px;
    /* Ajustez la taille de la police selon vos besoins */
    font-weight: bold;
@@ -59,7 +67,12 @@ main {
    -webkit-background-clip: text;
 }
 
-.start-screen {
+#end-score{
+   font-size: 45px;
+}
+
+.start-screen,
+.game-end {
    /* margin: auto; */
    display: flex;
    flex-direction: column;
@@ -68,15 +81,79 @@ main {
    align-items: center;
    width: 50%;
    height: 80%;
-   border: 3px solid green;
    padding: 10px;
 }
 
-.rules-list{
-   display: none;
+.rules {
+   width: 400px;
+   height: auto;
+
 }
 
-.start-title {
+#rules-title {
+   cursor: pointer;
+   color: #fff;
+   font-size: 36px;
+   margin-top: 1px;
+}
+
+.rules-list {
+   display: flex;
+   flex-direction: column;
+   font-size: 20px;
+   list-style: none;
+   margin: 10px;
+   color: #fff;
+   border: 1px solid white;
+   position: absolute;
+   left: -100%;
+   top: 35%;
+   border: 0px;
+   border-radius: 20px;
+   width: auto;
+   height: auto;
+   padding: 20px;
+   background-color: black;
+   transition: left 0.5s;
+   font-weight: bold;
+   /* Optionnel : mettre en majuscules */
+   border: 8px solid rgba(60, 99, 234, 0.30);
+   background: rgba(107, 127, 200, 0.2);
+   box-shadow: 20px 10px 4px 0px rgba(58, 70, 137, 0.25);
+   text-align: left;
+}
+
+.middle-end {
+   margin: 10px;
+   color: #fff;
+   border: 1px solid white;
+   border: 0px;
+   margin-top: 20px;
+   border-radius: 20px;
+   width: auto;
+   height: auto;
+   padding: 20px;
+   border: 8px solid rgba(60, 99, 234, 0.30);
+   background: rgba(107, 127, 200, 0.2);
+   box-shadow: 20px 10px 4px 0px rgba(58, 70, 137, 0.25);
+   font-size: 45px;
+}
+
+.rules-list li {
+   margin: 18px;
+}
+
+/* .rules-list.hidden {
+   display: none;
+} */
+
+.rules-list.show {
+   left: 50%;
+   /* Lorsqu'il est affiché, déplacez-le vers le centre */
+}
+
+.start-title,
+#end-title {
    font-size: 64px;
    /* Ajustez la taille de la police selon vos besoins */
    font-weight: bold;
@@ -109,6 +186,8 @@ main {
 .game-end {
    display: none;
 }
+
+
 
 .explosion {
    position: absolute;

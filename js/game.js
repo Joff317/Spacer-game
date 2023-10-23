@@ -81,15 +81,14 @@ class Game {
       this.endGame();
     }
 
-    if (Math.random() > 0.98 && this.asteroid.length < 9) {
+    if (Math.random() > 0.9 && this.asteroid.length < 10) {
       this.asteroid.push(new Asteroid(this.gameScreen));
     }
   }
 
   endGame() {
     this.gameScreen.style.display = "none";
-    this.endScreen.style.display = "block";
-
+    this.endScreen.style.display = "flex";
     this.gameIsOver = true;
   }
 }
