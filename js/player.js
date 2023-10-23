@@ -115,8 +115,6 @@ class Player {
     const playerRect = this.element.getBoundingClientRect();
     const asteroidRect = asteroid.element.getBoundingClientRect();
 
-    // VOIR CE QUI MERDE ICI !!!!
-
     if (
       (playerRect.left >= asteroidRect.left &&
         playerRect.left <= asteroidRect.right &&
