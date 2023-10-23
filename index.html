@@ -19,6 +19,8 @@
             <ul class="rules-list">
                <li>1. Launch the game</li>
                <li>2. You will have to avoid asteroid or destroy them</li>
+               <li>3. The score is going up until you are dead</li>
+               <li>4. You have three lives if you hit asteroid, you lose one live</li>
             </ul>
          </div>
          <button id="start-button">Launch Game</button>
@@ -28,8 +30,10 @@
       </div>
 
       <div class="game-end">
-         <h2>You loose</h2>
-         <h3>Score</h3>
+         <h2 id="end-title">You loose</h2>
+         <div class="middle-end">
+            <p>Don't give up hope, you'll do better next time</p>
+         </div>
          <button id="btn-restart-game">RESTART</button>
       </div>
    </main>
