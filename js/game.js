@@ -20,7 +20,6 @@ class Game {
   }
 
   start() {
-    // Initialiser la taille de l'écran
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.height}px`;
 
@@ -51,9 +50,9 @@ class Game {
         asteroid.explode();
         asteroid.element.remove();
         collidedProjectile.image.remove();
-
+        this.score++;
+        document.querySelector(".score").innerHTML = `Score: ${this.score}`;
         // Incrémente le score
-        document.querySelector(".score").innerHTML = `Score: ${this.score++}`;
       }
 
       return !collidedProjectile; // Retourne true si l'asté n'a pas été touché
@@ -72,7 +71,7 @@ class Game {
         document.querySelector(".lives").innerHTML = `Lives: ${this.lives}`;
         // Si collision on supprime l'astero
         asteroid.element.remove();
-        return false; // Retourne false pour retirer l'astéroïde de la liste
+        return false; // Retourne false pour retirer l'asté de la liste
       }
       return asteroid.move();
     });
@@ -81,7 +80,7 @@ class Game {
       this.endGame();
     }
 
-    if (Math.random() > 0.9 && this.asteroid.length < 10) {
+    if (Math.random() > 0.95 && this.asteroid.length < 10) {
       this.asteroid.push(new Asteroid(this.gameScreen));
     }
   }

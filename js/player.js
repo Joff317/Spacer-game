@@ -97,11 +97,6 @@ class Player {
   }
 
   fire() {
-    // const x = this.left + this.width / 2;
-    // console.log(x);
-    // const y = this.top + this.height / 2;
-    // console.log(y);
-
     console.log(this.projectiles);
     if (this.projectiles.length < 10) {
       // console.log("tessst");
@@ -123,10 +118,22 @@ class Player {
     // VOIR CE QUI MERDE ICI !!!!
 
     if (
-      playerRect.left < asteroidRect.right &&
-      playerRect.right > asteroidRect.left &&
-      playerRect.top < asteroidRect.bottom &&
-      playerRect.bottom > asteroidRect.top
+      (playerRect.left >= asteroidRect.left &&
+        playerRect.left <= asteroidRect.right &&
+        playerRect.top >= asteroidRect.top &&
+        playerRect.top <= asteroidRect.bottom) ||
+      (playerRect.right >= asteroidRect.left &&
+        playerRect.right <= asteroidRect.right &&
+        playerRect.top >= asteroidRect.top &&
+        playerRect.top <= asteroidRect.bottom) ||
+      (playerRect.left >= asteroidRect.left &&
+        playerRect.left <= asteroidRect.right &&
+        playerRect.bottom >= asteroidRect.top &&
+        playerRect.bottom <= asteroidRect.bottom) ||
+      (playerRect.right >= asteroidRect.left &&
+        playerRect.right <= asteroidRect.right &&
+        playerRect.bottom >= asteroidRect.top &&
+        playerRect.bottom <= asteroidRect.bottom)
     ) {
       // console.log("Crash!");
 
