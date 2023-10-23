@@ -8,11 +8,11 @@ selectRulesTitle.addEventListener("click", function () {
   if (selectRulesList.classList.contains("hidden")) {
     selectRulesTitle.innerHTML = "Click to hide rules";
     selectRulesList.style.display = "flex";
-    selectRulesList.style.left = "34%"; 
-    selectRulesList.classList.remove("hidden"); 
+    selectRulesList.style.left = "32%";
+    selectRulesList.classList.remove("hidden");
   } else {
     selectRulesTitle.innerHTML = "Click to check rules";
-    selectRulesList.style.left = "-1000px"; 
-    selectRulesList.classList.add("hidden"); 
+    selectRulesList.style.left = "-1000px";
+    selectRulesList.classList.add("hidden");
   }
 });

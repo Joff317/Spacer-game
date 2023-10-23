@@ -42,7 +42,7 @@ main {
    box-shadow: -20px 10px 9px 0px rgba(36, 86, 212, 0.524);
 }
 
-#btn-restart-game{
+#btn-restart-game {
    bottom: 20%;
 }
 
@@ -62,7 +62,7 @@ main {
    -webkit-background-clip: text;
 }
 
-#end-score{
+#end-score {
    font-size: 45px;
 }
 
@@ -80,7 +80,7 @@ main {
 }
 
 .rules {
-   width: 400px;
+   width: 100%;
    height: auto;
 
 }
@@ -143,7 +143,7 @@ main {
 
 .start-title,
 #end-title {
-   font-size: 64px;
+   font-size: 78px;
    font-weight: bold;
    text-transform: uppercase;
    color: white;
@@ -187,3 +187,5 @@ main {
       opacity: 0;
    }
 }
+
+/** Responsive **/
