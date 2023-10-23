@@ -32,6 +32,7 @@ main {
    bottom: 150px;
    padding: 10px;
    text-align: center;
+   color: #fff;
    height: 50px;
    width: 300px;
    cursor: pointer;
