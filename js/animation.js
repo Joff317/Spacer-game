@@ -8,7 +8,7 @@ selectRulesTitle.addEventListener("click", function () {
   if (selectRulesList.classList.contains("hidden")) {
     selectRulesTitle.innerHTML = "Click to hide rules";
     selectRulesList.style.display = "flex";
-    selectRulesList.style.left = "32%";
+    selectRulesList.style.left = "50%";
     selectRulesList.classList.remove("hidden");
   } else {
     selectRulesTitle.innerHTML = "Click to check rules";
