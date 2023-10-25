@@ -115,29 +115,11 @@ class Player {
     const playerRect = this.element.getBoundingClientRect();
     const asteroidRect = asteroid.element.getBoundingClientRect();
 
-    if (
-      (playerRect.left >= asteroidRect.left &&
-        playerRect.left <= asteroidRect.right &&
-        playerRect.top >= asteroidRect.top &&
-        playerRect.top <= asteroidRect.bottom) ||
-      (playerRect.right >= asteroidRect.left &&
-        playerRect.right <= asteroidRect.right &&
-        playerRect.top >= asteroidRect.top &&
-        playerRect.top <= asteroidRect.bottom) ||
-      (playerRect.left >= asteroidRect.left &&
-        playerRect.left <= asteroidRect.right &&
-        playerRect.bottom >= asteroidRect.top &&
-        playerRect.bottom <= asteroidRect.bottom) ||
-      (playerRect.right >= asteroidRect.left &&
-        playerRect.right <= asteroidRect.right &&
-        playerRect.bottom >= asteroidRect.top &&
-        playerRect.bottom <= asteroidRect.bottom)
-    ) {
-      // console.log("Crash!");
-
-      return true;
-    } else {
-      return false;
-    }
+    return (
+      playerRect.left < asteroidRect.right &&
+      playerRect.right > asteroidRect.left &&
+      playerRect.top < asteroidRect.bottom &&
+      playerRect.bottom > asteroidRect.top
+    );
   }
 }
