@@ -36,8 +36,7 @@ class Projectile {
     if (
       projectileRect.left < asteroidRect.right &&
       projectileRect.right > asteroidRect.left &&
-      projectileRect.top < asteroidRect.bottom &&
-      projectileRect.bottom > asteroidRect.top
+      projectileRect.top < asteroidRect.bottom 
     ) {
       console.log("HIT!");
 
