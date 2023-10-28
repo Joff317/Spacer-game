@@ -26,17 +26,17 @@ class Game {
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
 
-    this.replay();
+    this.loop();
   }
 
-  replay() {
+  loop() {
     if (this.gameIsOver) {
       return;
     }
 
     this.update();
 
-    window.requestAnimationFrame(() => this.replay());
+    window.requestAnimationFrame(() => this.loop());
   }
 
   checkCollisions() {

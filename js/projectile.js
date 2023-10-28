@@ -3,7 +3,6 @@ class Projectile {
     this.gameScreen = gameScreen;
     this.x = PlayerX;
     this.y = PlayerY;
-    //  this.speed = -3;
     this.image = document.createElement("img");
     this.image.src = "../images/missile.png";
     this.image.style.position = "absolute";
